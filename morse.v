@@ -6,21 +6,23 @@ reg button_old = 1, button_raise = 0;
 always @(posedge CLKin) begin
     // detect rising edge
     
-    if (button_old != button2 && button2 == 1'b1)
-          button_raise <= 1'b1;
-	
+    if (button_old != button2 && button2 == 1'b1)begin
+        button_raise <= 1'b1;
+	end
 	button_old <= button2;
-
+	
     // increment number
     if(button_raise == 1'b1)
     begin
         if(!button1)begin
 		in[i] <= 0;
         i = i + 1;
+        button_raise <= 1'b0;
         end 
-        else if(button2)begin
+        else if(!button2)begin
 		in[i] <= 1;
         i = i + 1;
+        button_raise <= 1'b0;
 		end
     end
 
@@ -34,5 +36,5 @@ always @(posedge CLKin) begin
 			
 	
 end
-
+	
 endmodule
