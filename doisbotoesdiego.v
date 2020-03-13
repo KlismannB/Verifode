@@ -100,25 +100,26 @@ integer i = 0;
 reg[3:0]pontoTraco;
 
 initial begin
-	contador <= 32'b0;// ZERA O CONTADOR
-	ledLigado <= 0; // ESTADO DO LED É FALSO
+contador <= 32'b0;// ZERA O CONTADOR
+ledLigado <= 0; // ESTADO DO LED É FALSO
+
 end
 
 always @(posedge clk) // SEMPRE NO PULSO DO CLOCK
 begin
 	if(~button1)
 	begin
-		contador <= contador + 1'b1; // SOMA UM AO CONTADOR
-		pontoTraco[4 - i] = 1'b0;
+	contador <= contador + 1'b1; // SOMA UM AO CONTADOR
+	pontoTraco[4 - i] = 1'b0;
 	end
 	
 	if(~button2)
 	begin
-		contador <= contador + 1'b1; // SOMA UM AO CONTADOR
-		pontoTraco[4 - i] = 1'b1;
+	contador <= contador + 1'b1; // SOMA UM AO CONTADOR
+	pontoTraco[4 - i] = 1'b1;
 	end
 	
-	if(contador > 35000000) // SE O CONTADOR = MÁXIMO
+	if(contador > 12000000) // SE O CONTADOR = MÁXIMO
 	begin
 	
 		i = i + 1; //TOGGLE
