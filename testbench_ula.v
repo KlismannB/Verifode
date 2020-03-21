@@ -62,7 +62,33 @@ module testbench_ula ();
     switchs = 4'b0011; A = 4'b0001; B = 4'b0000; #10;
 	  if (saida !== 8'b00000000) $display("Saida falhou com divisao 1 / 0");
 	  
-    
+    //Deslocamento para a esquerda em A
+	  
+    switchs = 4'b0100; A = 4'b1010; #10;
+	  if (saida !== 8'b00000100) $display("Saida falhou para deslocamento para esquerda de 1010");
+	  
+    switchs = 4'b0100; A = 4'b1111; #10;
+	  if (saida !== 8'b00001110) $display("Saida falhou para deslocamento para esquerda de 1111");
+	 
+    switchs = 4'b0100; A = 4'b0000; #10;
+	  if (saida !== 8'b00000000) $display("Saida falhou para deslocamento para esquerda de 0000");
+	  
+    switchs = 4'b0100; A = 4'b1000; #10;
+	  if (saida !== 8'b00000000) $display("Saida falhou para deslocamento para esquerda de 1000");
+	  
+    //Deslocamento para a direita em A
+	  
+    switchs = 4'b0100; A = 4'b1010; #10;
+	  if (saida !== 8'b00000101) $display("Saida falhou para deslocamento para direita de 1010");
+	  
+    switchs = 4'b0100; A = 4'b1111; #10;
+	  if (saida !== 8'b00000111) $display("Saida falhou para deslocamento para direita de 1010");
+	  
+    switchs = 4'b0100; A = 4'b0000; #10;
+	  if (saida !== 8'b00000000) $display("Saida falhou para deslocamento para direita de 0000");
+	  
+    switchs = 4'b0100; A = 4'b0001; #10;
+	  if (saida !== 8'b00000000) $display("Saida falhou para deslocamento para direita de 0000");
 	  
   end
 endmodule
