@@ -1,7 +1,7 @@
-module TB_ULA2 ();
+module testbench_ula ();
 	reg [3:0] switchs;
 	reg [3:0] A;
-  reg [3:0] B;
+  	reg [3:0] B;
 	wire [7:0] saida;
 
   ula dut(.saida(saida), .A(A), .B(B), .switchs(switchs));
